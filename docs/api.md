@@ -6,10 +6,13 @@ The F*ckDebt API is a RESTful interface built with Node.js/Express, serving the 
 ## Base URL
 `https://api.fckdebt.com`
 
-## Authentication
-All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT token.
+## Versioning
+F*ckDebt uses URL-based versioning (e.g., `/v1/`). Current version: `v1`. See [/docs/api-versioning.md](/docs/api-versioning.md) for details on versioning policy, deprecation, and migration.
 
-### POST /api/auth/signup
+## Authentication
+All endpoints except `/v1/auth/signup` and `/v1/auth/login` require a JWT token.
+
+### POST /v1/auth/signup
 - **Description**: Register a new user; client generates AES key.
 - **Request**:
   ```json
@@ -30,7 +33,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
   - **409 Conflict**: `Email already registered`
   - **500 Internal Server Error**: `Server error during signup`
 
-### POST /api/auth/login (Mobile)
+### POST /v1/auth/login (Mobile)
 - **Description**: Mobile login with permanent AES key.
 - **Request**:
   ```json
@@ -50,7 +53,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
   - **403 Forbidden**: `Too many failed attempts; key reset required`
   - **500 Internal Server Error**: `Server error during login`
 
-### POST /api/auth/login/web
+### POST /v1/auth/login/web
 - **Description**: Initiate web login; triggers mobile push.
 - **Request**:
   ```json
@@ -66,7 +69,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
   - **404 Not Found**: `No mobile device registered`
   - **500 Internal Server Error**: `Failed to send push notification`
 
-### POST /api/auth/web/approve
+### POST /v1/auth/web/approve
 - **Description**: Mobile approves web login; returns temp key.
 - **Request**:
   ```json
@@ -83,7 +86,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
 
 ## Debt Management
 
-### POST /api/debts/list
+### POST /v1/debts/list
 - **Description**: Get all debts for a user.
 - **Request**:
   ```json
@@ -112,7 +115,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
   - **403 Forbidden**: `Invalid decryption key`
   - **500 Internal Server Error**: `Server error retrieving debts`
 
-### POST /api/debts/create
+### POST /v1/debts/create
 - **Description**: Add a new debt.
 - **Request**:
   ```json
@@ -137,7 +140,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
   - **401 Unauthorized**: `Invalid token`
   - **500 Internal Server Error**: `Server error creating debt`
 
-### POST /api/debts/update
+### POST /v1/debts/update
 - **Description**: Update an existing debt.
 - **Request**:
   ```json
@@ -160,7 +163,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
   - **404 Not Found**: `Debt not found`
   - **500 Internal Server Error**: `Server error updating debt`
 
-### POST /api/debts/payment
+### POST /v1/debts/payment
 - **Description**: Record a debt payment.
 - **Request**:
   ```json
@@ -184,7 +187,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
 
 ## Budgeting
 
-### POST /api/budget/get
+### POST /v1/budget/get
 - **Description**: Fetch user’s budget.
 - **Request**:
   ```json
@@ -213,7 +216,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
   - **403 Forbidden**: `Invalid decryption key`
   - **404 Not Found**: `Budget not found`
 
-### POST /api/budget/create
+### POST /v1/budget/create
 - **Description**: Create a new budget.
 - **Request**:
   ```json
@@ -242,7 +245,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
   - **401 Unauthorized**: `Invalid token`
   - **500 Internal Server Error**: `Server error creating budget`
 
-### POST /api/budget/update
+### POST /v1/budget/update
 - **Description**: Update an existing budget.
 - **Request**:
   ```json
@@ -267,7 +270,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
 
 ## Dashboard
 
-### POST /api/dashboard/get
+### POST /v1/dashboard/get
 - **Description**: Fetch dashboard data.
 - **Request**:
   ```json
@@ -290,7 +293,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
   - **401 Unauthorized**: `Invalid token`
   - **403 Forbidden**: `Invalid decryption key`
 
-### POST /api/accounts/create
+### POST /v1/accounts/create
 - **Description**: Add a new account.
 - **Request**:
   ```json
@@ -310,7 +313,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
   - **400 Bad Request**: `Invalid account data`
   - **401 Unauthorized**: `Invalid token`
 
-### POST /api/goals/create
+### POST /v1/goals/create
 - **Description**: Add a new savings goal.
 - **Request**:
   ```json
@@ -332,7 +335,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
 
 ## Transactions
 
-### POST /api/transactions/create
+### POST /v1/transactions/create
 - **Description**: Record a transaction.
 - **Request**:
   ```json
@@ -355,7 +358,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
   - **401 Unauthorized**: `Invalid token`
   - **404 Not Found**: `Category or account not found`
 
-### POST /api/transactions/list
+### POST /v1/transactions/list
 - **Description**: Get transaction history.
 - **Request**:
   ```json
@@ -381,7 +384,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
 
 ## Notifications
 
-### POST /api/notifications/list
+### POST /v1/notifications/list
 - **Description**: Get notification triggers.
 - **Request**:
   ```json
@@ -404,7 +407,7 @@ All endpoints except `/api/auth/signup` and `/api/auth/login` require a JWT toke
   - **401 Unauthorized**: `Invalid token`
   - **403 Forbidden**: `Invalid decryption key`
 
-### POST /api/notifications/create
+### POST /v1/notifications/create
 - **Description**: Add a notification trigger.
 - **Request**:
   ```json
