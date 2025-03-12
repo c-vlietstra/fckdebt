@@ -7,7 +7,7 @@
 - Dart (Flutter-compatible version)
 
 ## Backend
-1. `cd fckdebt/backend`
+1. `cd fckdebt/server`
 2. `npm install`
 3. Configure `.env`:
 ```

@@ -1,0 +1,63 @@
+# Node.js (Server)
+node_modules/
+*.log
+npm-debug.log*
+pids
+*.pid
+*.seed
+*.pid.lock
+server/.env  # Keep server env private
+
+# Flutter (App)
+app/.dart_tool/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/.packages
+app/.pub-cache/
+app/.pub/
+app/build/
+app/ios/Flutter/App.framework
+app/ios/Flutter/Flutter.framework
+app/ios/Flutter/Generated.xcconfig
+app/ios/Runner.xcworkspace/xcshareddata/
+app/android/.gradle/
+app/android/app/build/
+app/android/build/
+app/lib/generated_plugin_registrant.dart
+app/**/*.g.dart  # Generated files (if using build_runner)
+
+# Documentation (if applicable)
+docs/*.bak  # Backup files
+
+# General
+*.DS_Store  # macOS
+Thumbs.db   # Windows
+*.swp       # Vim
+*.swo
+*.tmp
+
+# IDEs
+.idea/      # IntelliJ/Android Studio
+.vscode/    # VS Code (optional: keep if sharing settings)
+*.iml       # IntelliJ module files
+
+# Build artifacts
+*.o
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+*.exe
+
+# Environment
+.env
+*.env.local
+*.env.development
+*.env.test
+*.env.production
+
+# Misc
+*.lock      # Lock files (unless needed, e.g., package-lock.json)
+coverage/   # Test coverage reports
+dist/       # Distribution folders
