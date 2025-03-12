@@ -4,14 +4,29 @@
 - Node.js (v16+)
 - PostgreSQL (v13+)
 - Flutter (v3+)
+- Dart (Flutter-compatible version)
 
 ## Backend
-1. `cd money-app-backend`
+1. `cd fckdebt/backend`
 2. `npm install`
-3. Configure `.env` (see `.env.example`)
-4. Start: `npm start`
+3. Configure `.env`:
+```
+PORT=3000
+DATABASE_URL=postgres://user:password@localhost:5432/fckdebt
+JWT_SECRET=your-secret-here
+FCM_SERVER_KEY=your-fcm-key
+```
+See `.env.example` for details.
+4. Run database: `psql -f docs/sql/schema.sql`
+5. Start: `npm start`
 
-## Frontend
-1. `cd money_app`
+## Frontend (Flutter Mobile)
+1. `cd fckdebt/mobile`
 2. `flutter pub get`
-3. Run: `flutter run`
+- Dependencies: `encrypt`, `flutter_secure_storage`, `firebase_messaging`, `provider`, `charts_flutter`
+3. Configure Firebase for push notifications (see `firebase_messaging` docs).
+4. Run: `flutter run`
+
+## Notes
+- Ensure PostgreSQL is running before starting the backend.
+- Flutter app generates AES-256 key on signup—save it locally for testing.
