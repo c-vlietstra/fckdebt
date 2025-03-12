@@ -33,13 +33,18 @@ Details in [/docs/architecture.md](/docs/architecture.md).
 No subscriptions—F*ckDebt stays free. I’m funding it via [BuyMeACoffee](https://buymeacoffee.com/yourusername) with one-time tips from users who dig the mission. See [/docs/financing.md](/docs/financing.md) for more.
 
 ## Documentation
-- [Architecture](/docs/architecture.md)
-- [Database](/docs/database.md)
-- [API](/docs/api.md)
-- [Security](/docs/security.md)
+- [Architecture](/docs/architecture.md): System design and tech stack.
+- [Database](/docs/database.md): PostgreSQL schema.
+- [API](/docs/api.md): REST endpoints (v1).
+- [API Versioning](/docs/api-versioning.md): Versioning strategy and policy.
+- [Security](/docs/security.md): Encryption and privacy details.
+- [Contributing](/docs/contributing.md): How to pitch in (no PRs).
+- [Roadmap](/docs/roadmap.md): Development phases.
+- [Setup](/docs/setup.md): Installation steps.
+- [Schema](/docs/sql/schema.sql): SQL setup.
 
 ## Contributing
-Got ideas? Open an issue or PR—no formal `/docs/contributing.md` yet, just jump in.
+Got ideas? See [/docs/contributing.md](/docs/contributing.md)—issues or email only, no pull requests.
 
 ## License
 MIT License - see [LICENSE](LICENSE).
